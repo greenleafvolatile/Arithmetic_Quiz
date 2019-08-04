@@ -45,7 +45,7 @@ public class Arithmetic_Quiz {
             if (!getPoint(level)) {
                 return false;
             }
-            // If users provides correct solution, present new problem.
+            // If user provides correct solution, present new problem.
             if(level.getLevel()==1){
                 level=new Level_1_Problem();
             }
