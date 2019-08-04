@@ -73,108 +73,55 @@ public class Arithmetic_Quiz {
     }
 }
 
-    /*public void startQuiz(){
-        presentProblem(problem);
-    }
 
+/**
+ * This was my original code
+ */
 
-    public void presentProblem(Arithmetic_Problem problem) {
-        response = JOptionPane.showInputDialog(problem.displayProblem());
-    }
+/*public void presentProblem(Arithmetic_Problem problem) {
 
-    public void checkResponse() {
-            if (problem.checkAnswer(response)) {
-                points++;
-                tries=0;
-            } else if(!problem.checkAnswer(response)){
-                tries++;
-                if (tries < 2) {
-                    JOptionPane.showMessageDialog(null, "Your answer was incorrect. The correct answer was: " + problem.getSolution());
-                    presentProblem(problem);
-                }
-                else if (tries == 2) {
-                    String option = "";
-                    while (!option.toLowerCase().equals("y") && !option.toLowerCase().equals("n")) {
-                        option = JOptionPane.showInputDialog(null, "You answer was not correct! Play again (y/n)?");
-                    }
-                    switch (option.toLowerCase()) {
-                        case "y":
-                            presentProblem(new Level_1_Problem());
-                            break;
-                        case "n":
-                            System.out.print("No");
-                            break;
-                    }
-                }
-            }
-    }
+    while (points <= 5) {
 
-    public void askPlayAgain(){
-        while(true){
-
-        }
-    }
-
-    public void levelUp(){
-        if(problem.getLevel()==1){
-                JOptionPane.showMessageDialog(null, "Level 2!");
-                presentProblem(new Level_2_Problem());
-        }
-        else if(problem.getLevel()==2){
-                JOptionPane.showMessageDialog(null, "Level 3!");
-                presentProblem(new Level_3_Problem());
-        }
-    }
-}
-
-
-
-
-
-    /*public void presentProblem(Arithmetic_Problem problem) {
-
-        while (points <= 5) {
-
-            String response = JOptionPane.showInputDialog(problem.displayProblem());
-            if (problem.checkAnswer(response)) {
-                points++;
-                tries = 0;
-                Logger.getGlobal().info("Points: " + points);
-            } else if (!problem.checkAnswer(response)) {
-                tries++;
-                if (tries < 2) {
-                    JOptionPane.showMessageDialog(null, "Your answer was incorrect. The correct answer was: " + problem.getSolution());
-                    presentProblem(problem);
-                }
-                if (tries == 2) {
-                    String option = "";
-                    while (!option.toLowerCase().equals("y") && !option.toLowerCase().equals("n")) {
-                        option = JOptionPane.showInputDialog(null, "You answer was not correct! Play again (y/n)?");
-                    }
-                    switch (option.toLowerCase()) {
-                        case "y":
-                            presentProblem(new Level_1_Problem());
-                            break;
-                        case "n":
-                            System.out.print("No");
-                            break;
-                    }
-                }
-            }
-            if (points == 5 && problem.getLevel()==1) {
-                points = 0;
-                JOptionPane.showMessageDialog(null, "Level 2!");
-                problem = new Level_2_Problem();
+        String response = JOptionPane.showInputDialog(problem.displayProblem());
+        if (problem.checkAnswer(response)) {
+            points++;
+            tries = 0;
+            Logger.getGlobal().info("Points: " + points);
+        } else if (!problem.checkAnswer(response)) {
+            tries++;
+            if (tries < 2) {
+                JOptionPane.showMessageDialog(null, "Your answer was incorrect. The correct answer was: " + problem.getSolution());
                 presentProblem(problem);
-            } else if (points == 5 && problem.getLevel()==2) {
-                points = 0;
-                JOptionPane.showMessageDialog(null, "Level 3");
-                problem = new Level_3_Problem();
-                presentProblem(problem);
-            } else if (points == 5 && problem.getLevel==3) {
-                JOptionPane.showMessageDialog(null, "Yay!");
-                System.exit(0);
             }
-            problem=problem.getNextProblem();
+            if (tries == 2) {
+                String option = "";
+                while (!option.toLowerCase().equals("y") && !option.toLowerCase().equals("n")) {
+                    option = JOptionPane.showInputDialog(null, "You answer was not correct! Play again (y/n)?");
+                }
+                switch (option.toLowerCase()) {
+                    case "y":
+                        presentProblem(new Level_1_Problem());
+                        break;
+                    case "n":
+                        System.out.print("No");
+                        break;
+                }
+            }
         }
-    }*/
+        if (points == 5 && problem.getLevel()==1) {
+            points = 0;
+            JOptionPane.showMessageDialog(null, "Level 2!");
+            problem = new Level_2_Problem();
+            presentProblem(problem);
+        } else if (points == 5 && problem.getLevel()==2) {
+            points = 0;
+            JOptionPane.showMessageDialog(null, "Level 3");
+            problem = new Level_3_Problem();
+            presentProblem(problem);
+        } else if (points == 5 && problem.getLevel==3) {
+            JOptionPane.showMessageDialog(null, "Yay!");
+            System.exit(0);
+        }
+        problem=problem.getNextProblem();
+    }
+}*/
