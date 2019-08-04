@@ -1,7 +1,5 @@
 public class Level_3_Problem extends Arithmetic_Problem {
 
-
-
     private static final int level=3;
 
     public Level_3_Problem(){
