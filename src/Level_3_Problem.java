@@ -23,4 +23,8 @@ public class Level_3_Problem extends Arithmetic_Problem {
     public int getLevel(){
         return level;
     }
+
+    public Arithmetic_Problem nextProblem(){
+        return new Level_3_Problem();
+    }
 }
