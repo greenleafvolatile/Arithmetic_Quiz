@@ -13,7 +13,7 @@ public class Arithmetic_Quiz_1_0_1 {
         presentProblem(problem);
     }
 
-    public void presentProblem(Arithmetic_Problem problem) {
+    private void presentProblem(Arithmetic_Problem problem) {
 
         while (points <= 5) {
 
@@ -41,7 +41,7 @@ public class Arithmetic_Quiz_1_0_1 {
         }
     }
 
-    public void levelUp(Arithmetic_Problem problem){
+    private void levelUp(Arithmetic_Problem problem){
        switch(problem.getLevel()) {
            case 1 :
                problem=new Level_2_Problem();
@@ -59,7 +59,7 @@ public class Arithmetic_Quiz_1_0_1 {
     }
 
 
-    public void askPlayAgain() {
+    private void askPlayAgain() {
         while (true) {
             String option = JOptionPane.showInputDialog(null, "Your answer was not correct. Play again(y/n)?");
             switch (option.toLowerCase()) {
