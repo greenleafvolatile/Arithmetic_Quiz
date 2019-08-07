@@ -5,18 +5,21 @@ public class Arithmetic_Quiz_1_0_1 {
 
     private int points;
     private int tries;
+    private Arithmetic_Problem problem;
 
     public Arithmetic_Quiz_1_0_1() {
         points = 0;
         tries = 0;
-        Arithmetic_Problem problem = new Level_1_Problem();
+        problem = new Level_1_Problem();
+    }
+
+    public void startQuiz(){
         presentProblem(problem);
     }
 
     private void presentProblem(Arithmetic_Problem problem) {
 
-        while (points <= 5) {
-
+        while (points<5) {
             String response = JOptionPane.showInputDialog(problem.displayProblem());
             if (problem.checkAnswer(response)) {
                 points++;
@@ -32,12 +35,24 @@ public class Arithmetic_Quiz_1_0_1 {
                     askPlayAgain();
                 }
             }
-            if(points==5){
-                points=0;
-                levelUp(problem);
+            nextProblem(problem);
+        }
+        points=0;
+        levelUp(problem);
+    }
 
-            }
-            problem = problem.nextProblem();
+    public void nextProblem(Arithmetic_Problem problem){
+
+        switch(problem.getLevel()) {
+            case 1 :
+                presentProblem(new Level_1_Problem());
+                break;
+            case 2 :
+                presentProblem(new Level_2_Problem());
+                break;
+            case 3 :
+                presentProblem(new Level_3_Problem());
+                break;
         }
     }
 
