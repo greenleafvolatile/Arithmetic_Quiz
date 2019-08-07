@@ -23,7 +23,4 @@ public class Level_2_Problem extends Arithmetic_Problem {
         return level;
     }
 
-    public Arithmetic_Problem nextProblem(){
-        return new Level_2_Problem();
-    }
 }
