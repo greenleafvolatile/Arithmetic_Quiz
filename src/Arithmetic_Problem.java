@@ -15,6 +15,5 @@ public abstract class Arithmetic_Problem {
 
     public abstract int getLevel();
 
-    public abstract Arithmetic_Problem nextProblem();
 }
 
