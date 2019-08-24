@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class Arithmetic_Quiz {
 
@@ -40,7 +40,11 @@ public class Arithmetic_Quiz {
     }
 
     private boolean getLevel(Arithmetic_Problem level) {
-        JOptionPane.showMessageDialog(null, "Level: " + level.getLevel());
+        // I wanted the text on the JOptionPane to be centered. For that I had to put together my own OptionPane.
+        JOptionPane pane=new JOptionPane(new JLabel("Level " + level.getLevel() + "!", JLabel.CENTER));
+        JDialog dialog=pane.createDialog("");
+        dialog.setModal(true);
+        dialog.setVisible(true);
         for (int points = 0; points < 5; points++) {
             if (!getPoint(level)) {
                 return false;
@@ -61,67 +65,20 @@ public class Arithmetic_Quiz {
 
     private boolean getPoint(Arithmetic_Problem level) {
         for (int tries = 0; tries < 2; tries++) {
+
             String response = JOptionPane.showInputDialog(level.displayProblem());
-            if (level.checkAnswer(response)) {
+            if(response==null){
+                JOptionPane.showMessageDialog(null, "Thanks for playing!", "Bye!", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
+            }
+            else if (level.checkAnswer(response)) {
                 return true;
             }
             JOptionPane.showMessageDialog(null, "Your answer was incorrect. The correct answer was: " + level.getSolution());
         }
         return false;
-
-
     }
 }
 
 
-/**
- * This was my original code
- */
 
-/*public void presentProblem(Arithmetic_Problem problem) {
-
-    while (points <= 5) {
-
-        String response = JOptionPane.showInputDialog(problem.displayProblem());
-        if (problem.checkAnswer(response)) {
-            points++;
-            tries = 0;
-            Logger.getGlobal().info("Points: " + points);
-        } else if (!problem.checkAnswer(response)) {
-            tries++;
-            if (tries < 2) {
-                JOptionPane.showMessageDialog(null, "Your answer was incorrect. The correct answer was: " + problem.getSolution());
-                presentProblem(problem);
-            }
-            if (tries == 2) {
-                String option = "";
-                while (!option.toLowerCase().equals("y") && !option.toLowerCase().equals("n")) {
-                    option = JOptionPane.showInputDialog(null, "You answer was not correct! Play again (y/n)?");
-                }
-                switch (option.toLowerCase()) {
-                    case "y":
-                        presentProblem(new Level_1_Problem());
-                        break;
-                    case "n":
-                        System.out.print("No");
-                        break;
-                }
-            }
-        }
-        if (points == 5 && problem.getLevel()==1) {
-            points = 0;
-            JOptionPane.showMessageDialog(null, "Level 2!");
-            problem = new Level_2_Problem();
-            presentProblem(problem);
-        } else if (points == 5 && problem.getLevel()==2) {
-            points = 0;
-            JOptionPane.showMessageDialog(null, "Level 3");
-            problem = new Level_3_Problem();
-            presentProblem(problem);
-        } else if (points == 5 && problem.getLevel==3) {
-            JOptionPane.showMessageDialog(null, "Yay!");
-            System.exit(0);
-        }
-        problem=problem.getNextProblem();
-    }
-}*/
