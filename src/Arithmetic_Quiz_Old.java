@@ -1,13 +1,13 @@
 import javax.swing.*;
 import java.util.logging.Logger;
 
-public class Arithmetic_Quiz_1_0_1 {
+public class Arithmetic_Quiz_Old {
 
     private int points;
     private int tries;
     private Arithmetic_Problem problem;
 
-    public Arithmetic_Quiz_1_0_1() {
+    public Arithmetic_Quiz_Old() {
         points = 0;
         tries = 0;
         problem = new Level_1_Problem();
@@ -21,21 +21,27 @@ public class Arithmetic_Quiz_1_0_1 {
 
         while (points<5) {
             String response = JOptionPane.showInputDialog(problem.displayProblem());
-            if (problem.checkAnswer(response)) {
-                points++;
-                tries = 0;
-                Logger.getGlobal().info("Points: " + points);
-            } else if (!problem.checkAnswer(response)) {
-                tries++;
-                if (tries < 2) {
-                    JOptionPane.showMessageDialog(null, "Your answer was incorrect. The correct answer was: " + problem.getSolution());
-                    presentProblem(problem);
+            if(response!=null){
+                if (problem.checkAnswer(response)) {
+                    points++;
+                    tries = 0;
+                    Logger.getGlobal().info("Points: " + points);
+                } else if (!problem.checkAnswer(response)) {
+                    tries++;
+                    if (tries < 2) {
+                        JOptionPane.showMessageDialog(null, "Your answer was incorrect. The correct answer was: " + problem.getSolution());
+                        presentProblem(problem);
+                    }
+                    if (tries == 2) {
+                        askPlayAgain();
+                    }
                 }
-                if (tries == 2) {
-                    askPlayAgain();
-                }
+                nextProblem(problem);
             }
-            nextProblem(problem);
+            else{
+                JOptionPane.showMessageDialog(null, "Thanks for playing!", "Bye!", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
+            }
         }
         points=0;
         levelUp(problem);
