@@ -9,7 +9,7 @@ public class Level_3_Problem extends Arithmetic_Problem {
     }
 
     public String displayProblem(){
-        return String.format("(Level 3) What is the difference between %d and %d?", firstNumber, secondNumber);
+        return String.format("What is the difference between %d and %d?", firstNumber, secondNumber);
     }
 
     public boolean checkAnswer(String response){
