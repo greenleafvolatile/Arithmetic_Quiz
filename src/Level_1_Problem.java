@@ -8,7 +8,7 @@ public class Level_1_Problem extends Arithmetic_Problem {
     }
 
     public String displayProblem(){
-        return String.format("(Level 1) What is the sum of %d and %d: ", firstNumber, secondNumber);
+        return String.format("What is the sum of %d and %d: ", firstNumber, secondNumber);
     }
 
     public boolean checkAnswer(String response){
